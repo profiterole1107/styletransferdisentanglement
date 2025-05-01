@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Samples | Speech Synthesis Research</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a3c5a;
+            --primary-light: #2c5682;
+            --secondary-color: #2980b9;
+            --accent-color: #e74c3c;
+            --accent-light: #f9ebea;
+            --light-color: #f5f8fa;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+            --border-radius: 10px;
+            --box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 100 L100 0 L100 100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+        
+        .container {
+            padding: 0 2rem 3rem;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--primary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        header h1 {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            max-width: 900px;
+            margin: 0 auto 0.5rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .submission-info {
+            background-color: white;
+            color: var(--primary-color);
+            font-weight: 500;
+            padding: 1rem 1.5rem;
+            margin: 0 auto 2.5rem;
+            text-align: center;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            max-width: 600px;
+            font-size: 1.1rem;
+            position: relative;
+            top: -1.5rem;
+        }
+        
+        .abstract {
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+        
+        .abstract::before {
+            content: """;
+            position: absolute;
+            top: 0.5rem;
+            left: 1rem;
+            font-size: 5rem;
+            font-family: Georgia, serif;
+            color: var(--accent-light);
+            line-height: 1;
+            opacity: 0.5;
+        }
+        
+        .abstract h2 {
+            font-size: 1.6rem;
+            margin-top: 0;
+            border-bottom: none;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .abstract h2::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-color);
+            z-index: -1;
+        }
+        
+        .abstract p {
+            text-align: justify;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .figures-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 3rem 0;
+            justify-content: center;
+        }
+        
+        .figure-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .figure-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .figure-card h3 {
+            padding: 1.5rem;
+            margin: 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+        
+        figure {
+            margin: 0;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+        
+        .samples-heading {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            position: relative;
+        }
+        
+        .samples-heading::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 0.7rem auto 0;
+        }
+        
+        .samples-section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 2.5rem;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .samples-section:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .reference-text {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            padding: 1.5rem 2rem;
+            margin: 0;
+            background-color: var(--light-color);
+            font-style: italic;
+            position: relative;
+        }
+        
+        .reference-text::before {
+            content: "❝";
+            position: absolute;
+            left: 0.7rem;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+        
+        .reference-audio {
+            padding: 1.5rem;
+            background-color: #fff;
+            border-bottom: 1px solid var(--light-color);
+        }
+        
+        .reference-audio h4 {
+            margin-top: 0;
+            color: var(--text-light);
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .audio-players {
+            background-color: #fff;
+            padding: 1.5rem;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .comparison-table th {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-weight: 600;
+        }
+        
+        .comparison-table th:first-child {
+            border-top-left-radius: 5px;
+        }
+        
+        .comparison-table th:last-child {
+            border-top-right-radius: 5px;
+        }
+        
+        .comparison-table td {
+            padding: 1.5rem 1rem;
+            text-align: center;
+            vertical-align: middle;
+            border: none;
+        }
+        
+        .comparison-table tr:hover td {
+            background-color: var(--light-color);
+        }
+        
+        audio {
+            width: 100%;
+            height: 40px;
+            outline: none;
+        }
+        
+        audio::-webkit-media-controls-panel {
+            background-color: var(--light-color);
+        }
+        
+        audio::-webkit-media-controls-play-button {
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 2rem 1rem;
+            }
+            
+            .container {
+                padding: 0 1rem 2rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .figures-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .figure-card {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .reference-text {
+                font-size: 1.1rem;
+                padding: 1.2rem 1.5rem 1.2rem 2rem;
+            }
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--light-color);
+        }
+    </style>
+</head>
+	
+<body>
+    <header>
+        <h1>IMPROVING ZERO-SHOT STYLE TRANSFER TEXT-TO-SPEECH BY DISENTANGLED FINE-GRAINED STYLE MODELING</h1>
+    </header>
+
+    <div class="container">
+        <div class="submission-info">
+            Submission to IEEE Signal Processing Letters, 2025
+        </div>
+
+        <section class="abstract" id="abstract">
+            <h2>Abstract</h2>
+            <p>Recent zero-shot style-transfer speech synthesis methods have shown promising results, and have been able to address adaptation to unseen speaking styles. While most state-of-the-art approaches achieve generalization to new speakers and styles with either very large models or large corpora, achieving the same generalization with a smaller model remains an open challenge. To this end, we first propose a novel zero-shot method that uses the small Generspeech backbone with the addition of a new fine-grained style encoder. Second, to perform disentanglement among speakers, global/fine-grained styles, and content embeddings, we introduce a specific mutual information minimization loss. Third, to further disentangle style from speaker and boost style embedding diversity, we introduce a maximum-mean-discrepancy-guided cycle-consistency loss. Experimental results show that we outperform the baseline zero-shot style-transfer methods with an average style preference of 58% and a prosody similarity PMOS score of 3.64 on the VCTK test set.</p>
+        </section>
+        
+        <div class="figures-container">
+            <div class="figure-card">
+                <h3>Model Architecture</h3>
+                <figure>
+                    <img src="fig1.png" alt="Model Architecture">
+                </figure>
+            </div>
+
+            <div class="figure-card">
+                <h3>Style Encoder</h3>
+                <figure>
+                    <img src="fig2.png" alt="Style Encoder">
+                </figure>
+            </div>
+        </div>
+
+        <h2 class="samples-heading">Test Samples for Zero-Shot Style Transfer on VCTK dataset</h2>
+
+        <div class="samples-section">
+            <p class="reference-text">Like the others, he was arrested.</p>
+            <div class="reference-audio">
+                <h4>Reference Audio</h4>
+                <audio controls><source src="./samples/website2/ref3.wav" type="audio/wav"></audio>
+            </div>
+
+            <div class="audio-players">
+                <table class="comparison-table">
+                    <tr>
+                        <th>Ours</th>
+                        <th>GenerSpeech</th>
+                        <th>YourTTS</th>
+                        <th>VALL-E-X</th>
+                    </tr>
+                    <tr>
+                        <td><audio controls><source src="./samples/website2/ours3.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/generspeech3.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/yourtts3.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/vallex3.wav"></audio></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="samples-section">
+            <p class="reference-text">I was scared.</p>
+            <div class="reference-audio">
+                <h4>Reference Audio</h4>
+                <audio controls><source src="./samples/website2/ref4.wav" type="audio/wav"></audio>
+            </div>
+
+            <div class="audio-players">
+                <table class="comparison-table">
+                    <tr>
+                        <th>Ours</th>
+                        <th>GenerSpeech</th>
+                        <th>YourTTS</th>
+                        <th>VALL-E-X</th>
+                    </tr>
+                    <tr>
+                        <td><audio controls><source src="./samples/website2/ours4.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/generspeech4.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/yourtts4.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/vallex4.wav"></audio></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="samples-section">
+            <p class="reference-text">Messages have to be reinforced.</p>
+            <div class="reference-audio">
+                <h4>Reference Audio</h4>
+                <audio controls><source src="./samples/website2/ref6.wav" type="audio/wav"></audio>
+            </div>
+
+            <div class="audio-players">
+                <table class="comparison-table">
+                    <tr>
+                        <th>Ours</th>
+                        <th>GenerSpeech</th>
+                        <th>YourTTS</th>
+                        <th>VALL-E-X</th>
+                    </tr>
+                    <tr>
+                        <td><audio controls><source src="./samples/website2/ours6.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/generspeech6.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/yourtts6.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/vallex6.wav"></audio></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="samples-section">
+            <p class="reference-text">Chambers said he would accept the place.</p>
+            <div class="reference-audio">
+                <h4>Reference Audio</h4>
+                <audio controls><source src="./samples/website2/ref17.wav" type="audio/wav"></audio>
+            </div>
+
+            <div class="audio-players">
+                <table class="comparison-table">
+                    <tr>
+                        <th>Ours</th>
+                        <th>GenerSpeech</th>
+                        <th>YourTTS</th>
+                        <th>VALL-E-X</th>
+                    </tr>
+                    <tr>
+                        <td><audio controls><source src="./samples/website2/ours17.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/generspeech17.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/yourtts17.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/vallex17.wav"></audio></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="samples-section">
+            <p class="reference-text">Sadly, the revival could not be sustained.</p>
+            <div class="reference-audio">
+                <h4>Reference Audio</h4>
+                <audio controls><source src="./samples/website2/ref18.wav" type="audio/wav"></audio>
+            </div>
+
+            <div class="audio-players">
+                <table class="comparison-table">
+                    <tr>
+                        <th>Ours</th>
+                        <th>GenerSpeech</th>
+                        <th>YourTTS</th>
+                        <th>VALL-E-X</th>
+                    </tr>
+                    <tr>
+                        <td><audio controls><source src="./samples/website2/ours18.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/generspeech18.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/yourtts18.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/vallex18.wav"></audio></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="samples-section">
+            <p class="reference-text">Mr Blair had done well.</p>
+            <div class="reference-audio">
+                <h4>Reference Audio</h4>
+                <audio controls><source src="./samples/website2/ref19.wav" type="audio/wav"></audio>
+            </div>
+
+            <div class="audio-players">
+                <table class="comparison-table">
+                    <tr>
+                        <th>Ours</th>
+                        <th>GenerSpeech</th>
+                        <th>YourTTS</th>
+                        <th>VALL-E-X</th>
+                    </tr>
+                    <tr>
+                        <td><audio controls><source src="./samples/website2/ours19.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/generspeech19.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/yourtts19.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/vallex19.wav"></audio></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Submission to IEEE Signal Processing Letters, 2025
+    </footer>
+</body>
+</html>
