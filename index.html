@@ -257,13 +257,13 @@
             font-size: 1.5rem;
         }
         
-        .reference-audio {
+        .reference-audio, .ground-truth-audio {
             padding: 1.5rem;
             background-color: #fff;
             border-bottom: 1px solid var(--light-color);
         }
         
-        .reference-audio h4 {
+        .reference-audio h4, .ground-truth-audio h4 {
             margin-top: 0;
             color: var(--text-light);
             font-size: 1rem;
@@ -405,10 +405,71 @@
         <h2 class="samples-heading">Test Samples for Zero-Shot Style Transfer on VCTK dataset</h2>
 
         <div class="samples-section">
-            <p class="reference-text">Like the others, he was arrested.</p>
+            <p class="reference-text">And we will go meet her wednesday at the train station.</p>
+            <div class="reference-audio">
+                <h4>Reference Audio</h4>
+                <audio controls><source src="./samples/website2/ref1.wav" type="audio/wav"></audio>
+            </div>
+            <div class="ground-truth-audio">
+                <h4>Ground Truth</h4>
+                <audio controls><source src="./samples/website2/gt1.wav" type="audio/wav"></audio>
+            </div>
+
+            <div class="audio-players">
+                <table class="comparison-table">
+                    <tr>
+                        <th>Ours</th>
+                        <th>GenerSpeech</th>
+                        <th>YourTTS</th>
+                        <th>VALL-E-X</th>
+                    </tr>
+                    <tr>
+                        <td><audio controls><source src="./samples/website2/ours1.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/gener1.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/yourtts1.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/vallex1.wav"></audio></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="samples-section">
+            <p class="reference-text">His friends say he's looking for the pot of gold at the end of the rainbow.</p>
+            <div class="reference-audio">
+                <h4>Reference Audio</h4>
+                <audio controls><source src="./samples/website2/ref2.wav" type="audio/wav"></audio>
+            </div>
+            <div class="ground-truth-audio">
+                <h4>Ground Truth</h4>
+                <audio controls><source src="./samples/website2/gt2.wav" type="audio/wav"></audio>
+            </div>
+
+            <div class="audio-players">
+                <table class="comparison-table">
+                    <tr>
+                        <th>Ours</th>
+                        <th>GenerSpeech</th>
+                        <th>YourTTS</th>
+                        <th>VALL-E-X</th>
+                    </tr>
+                    <tr>
+                        <td><audio controls><source src="./samples/website2/ours2.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/gener2.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/yourtts2.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/vallex2.wav"></audio></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="samples-section">But refraction by the raindrops which causes the rainbows.</p>
             <div class="reference-audio">
                 <h4>Reference Audio</h4>
                 <audio controls><source src="./samples/website2/ref3.wav" type="audio/wav"></audio>
+            </div>
+            <div class="ground-truth-audio">
+                <h4>Ground Truth</h4>
+                <audio controls><source src="./samples/website2/gt3.wav" type="audio/wav"></audio>
             </div>
 
             <div class="audio-players">
@@ -421,7 +482,7 @@
                     </tr>
                     <tr>
                         <td><audio controls><source src="./samples/website2/ours3.wav"></audio></td>
-                        <td><audio controls><source src="./samples/website2/generspeech3.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/gener3.wav"></audio></td>
                         <td><audio controls><source src="./samples/website2/yourtts3.wav"></audio></td>
                         <td><audio controls><source src="./samples/website2/vallex3.wav"></audio></td>
                     </tr>
@@ -430,10 +491,14 @@
         </div>
 
         <div class="samples-section">
-            <p class="reference-text">I was scared.</p>
+            <p class="reference-text">And the width of the colored band increases as the size of the drops increases.</p>
             <div class="reference-audio">
                 <h4>Reference Audio</h4>
                 <audio controls><source src="./samples/website2/ref4.wav" type="audio/wav"></audio>
+            </div>
+            <div class="ground-truth-audio">
+                <h4>Ground Truth</h4>
+                <audio controls><source src="./samples/website2/gt4.wav" type="audio/wav"></audio>
             </div>
 
             <div class="audio-players">
@@ -446,7 +511,7 @@
                     </tr>
                     <tr>
                         <td><audio controls><source src="./samples/website2/ours4.wav"></audio></td>
-                        <td><audio controls><source src="./samples/website2/generspeech4.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/gener4.wav"></audio></td>
                         <td><audio controls><source src="./samples/website2/yourtts4.wav"></audio></td>
                         <td><audio controls><source src="./samples/website2/vallex4.wav"></audio></td>
                     </tr>
@@ -455,10 +520,43 @@
         </div>
 
         <div class="samples-section">
-            <p class="reference-text">Messages have to be reinforced.</p>
+            <p class="reference-text">the result is to give a bow with an abnormally wide yellow band, since red and green light when mixed form yellow.</p>
+            <div class="reference-audio">
+                <h4>Reference Audio</h4>
+                <audio controls><source src="./samples/website2/ref5.wav" type="audio/wav"></audio>
+            </div>
+            <div class="ground-truth-audio">
+                <h4>Ground Truth</h4>
+                <audio controls><source src="./samples/website2/gt5.wav" type="audio/wav"></audio>
+            </div>
+
+            <div class="audio-players">
+                <table class="comparison-table">
+                    <tr>
+                        <th>Ours</th>
+                        <th>GenerSpeech</th>
+                        <th>YourTTS</th>
+                        <th>VALL-E-X</th>
+                    </tr>
+                    <tr>
+                        <td><audio controls><source src="./samples/website2/ours5.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/gener5.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/yourtts5.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/vallex5.wav"></audio></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="samples-section">
+            <p class="reference-text">And maybe a snack for her brother Bob.</p>
             <div class="reference-audio">
                 <h4>Reference Audio</h4>
                 <audio controls><source src="./samples/website2/ref6.wav" type="audio/wav"></audio>
+            </div>
+            <div class="ground-truth-audio">
+                <h4>Ground Truth</h4>
+                <audio controls><source src="./samples/website2/gt6.wav" type="audio/wav"></audio>
             </div>
 
             <div class="audio-players">
@@ -471,84 +569,9 @@
                     </tr>
                     <tr>
                         <td><audio controls><source src="./samples/website2/ours6.wav"></audio></td>
-                        <td><audio controls><source src="./samples/website2/generspeech6.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/gener6.wav"></audio></td>
                         <td><audio controls><source src="./samples/website2/yourtts6.wav"></audio></td>
                         <td><audio controls><source src="./samples/website2/vallex6.wav"></audio></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="samples-section">
-            <p class="reference-text">Chambers said he would accept the place.</p>
-            <div class="reference-audio">
-                <h4>Reference Audio</h4>
-                <audio controls><source src="./samples/website2/ref17.wav" type="audio/wav"></audio>
-            </div>
-
-            <div class="audio-players">
-                <table class="comparison-table">
-                    <tr>
-                        <th>Ours</th>
-                        <th>GenerSpeech</th>
-                        <th>YourTTS</th>
-                        <th>VALL-E-X</th>
-                    </tr>
-                    <tr>
-                        <td><audio controls><source src="./samples/website2/ours17.wav"></audio></td>
-                        <td><audio controls><source src="./samples/website2/generspeech17.wav"></audio></td>
-                        <td><audio controls><source src="./samples/website2/yourtts17.wav"></audio></td>
-                        <td><audio controls><source src="./samples/website2/vallex17.wav"></audio></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="samples-section">
-            <p class="reference-text">Sadly, the revival could not be sustained.</p>
-            <div class="reference-audio">
-                <h4>Reference Audio</h4>
-                <audio controls><source src="./samples/website2/ref18.wav" type="audio/wav"></audio>
-            </div>
-
-            <div class="audio-players">
-                <table class="comparison-table">
-                    <tr>
-                        <th>Ours</th>
-                        <th>GenerSpeech</th>
-                        <th>YourTTS</th>
-                        <th>VALL-E-X</th>
-                    </tr>
-                    <tr>
-                        <td><audio controls><source src="./samples/website2/ours18.wav"></audio></td>
-                        <td><audio controls><source src="./samples/website2/generspeech18.wav"></audio></td>
-                        <td><audio controls><source src="./samples/website2/yourtts18.wav"></audio></td>
-                        <td><audio controls><source src="./samples/website2/vallex18.wav"></audio></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="samples-section">
-            <p class="reference-text">Mr Blair had done well.</p>
-            <div class="reference-audio">
-                <h4>Reference Audio</h4>
-                <audio controls><source src="./samples/website2/ref19.wav" type="audio/wav"></audio>
-            </div>
-
-            <div class="audio-players">
-                <table class="comparison-table">
-                    <tr>
-                        <th>Ours</th>
-                        <th>GenerSpeech</th>
-                        <th>YourTTS</th>
-                        <th>VALL-E-X</th>
-                    </tr>
-                    <tr>
-                        <td><audio controls><source src="./samples/website2/ours19.wav"></audio></td>
-                        <td><audio controls><source src="./samples/website2/generspeech19.wav"></audio></td>
-                        <td><audio controls><source src="./samples/website2/yourtts19.wav"></audio></td>
-                        <td><audio controls><source src="./samples/website2/vallex19.wav"></audio></td>
                     </tr>
                 </table>
             </div>
