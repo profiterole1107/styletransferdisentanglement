@@ -225,6 +225,22 @@
             margin: 0.7rem auto 0;
         }
         
+        .domain-heading {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin: 2rem 0 0.5rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .domain-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            font-style: italic;
+        }
+        
         .samples-section {
             background-color: white;
             border-radius: var(--border-radius);
@@ -378,12 +394,12 @@
 
     <div class="container">
         <div class="submission-info">
-            Submission to JASA Express Letters, 2025
+            Submission to JASA Express Letters, 2026
         </div>
 
         <section class="abstract" id="abstract">
             <h2>Abstract</h2>
-            <p>Recent zero-shot style-transfer speech synthesis methods have shown promising results and addressed adaptation to unseen speaking styles. While most state-of-the-art methods generalize to new speakers and styles using very large models or corpora, achieving similar generalization with a smaller model remains an open challenge. We propose a novel zero-shot method that uses the small GenerSpeech backbone plus a fine-grained style encoder. To disentangle speakers, global/fine-grained styles, and content embeddings, we introduce a mutual-information minimization loss. To further disentangle style from speaker and boost style embedding diversity, we introduce a maximum-mean-discrepancy-guided cycle-consistency loss. Experimental results show we outperform baseline zero-shot style-transfer methods with 58% average style preference and a 3.64 prosody PMOS on VCTK.</p>
+            <p>Recent zero-shot style-transfer speech synthesis methods have shown promising results and addressed adaptation to unseen speaking styles. While most state-of-the-art methods generalize to new speakers and styles using very large models or corpora, achieving similar generalization with a smaller model remains an open challenge. We propose a zero-shot method that uses the small GenerSpeech backbone plus a fine-grained style encoder. To disentangle speakers, global/fine-grained styles, and content embeddings, we introduce a mutual-information minimization loss. To further disentangle style from speaker and boost style embedding diversity, we introduce a maximum-mean-discrepancy-guided cycle-consistency loss. Experimental results show we outperform baseline zero-shot style-transfer methods with 58% average style preference and a 3.64 prosody PMOS on VCTK.</p>
         </section>
         
         <div class="figures-container">
@@ -403,6 +419,9 @@
         </div>
 
         <h2 class="samples-heading">Test Samples for Zero-Shot Style Transfer on VCTK dataset</h2>
+
+        <h3 class="domain-heading">In-Domain Samples</h3>
+        <p class="domain-description">Training set: VCTK | Test set: VCTK</p>
 
         <div class="samples-section">
             <p class="reference-text">And we will go meet her wednesday at the train station.</p>
@@ -577,10 +596,187 @@
                 </table>
             </div>
         </div>
+
+        <h3 class="domain-heading">Out-of-Domain Samples</h3>
+        <p class="domain-description">Training set: LibriTTS | Test set: VCTK</p>
+
+        <div class="samples-section">
+            <p class="reference-text">And maybe a snack for her brother Bob.</p>
+            <div class="reference-audio">
+                <h4>Reference Audio</h4>
+                <audio controls><source src="./samples/website2/ref7_cross.wav" type="audio/wav"></audio>
+            </div>
+            <div class="ground-truth-audio">
+                <h4>Ground Truth</h4>
+                <audio controls><source src="./samples/website2/gt7_cross.wav" type="audio/wav"></audio>
+            </div>
+
+            <div class="audio-players">
+                <table class="comparison-table">
+                    <tr>
+                        <th>Ours</th>
+                        <th>GenerSpeech</th>
+                        <th>YourTTS</th>
+                        <th>VALL-E-X</th>
+                    </tr>
+                    <tr>
+                        <td><audio controls><source src="./samples/website2/ours7_cross.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/gener7_cross.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/yourtts7_cross.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/vallex7_cross.wav"></audio></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="samples-section">
+            <p class="reference-text">And its two ends apparently beyond the horizon.</p>
+            <div class="reference-audio">
+                <h4>Reference Audio</h4>
+                <audio controls><source src="./samples/website2/ref8_cross.wav" type="audio/wav"></audio>
+            </div>
+            <div class="ground-truth-audio">
+                <h4>Ground Truth</h4>
+                <audio controls><source src="./samples/website2/gt8_cross.wav" type="audio/wav"></audio>
+            </div>
+
+            <div class="audio-players">
+                <table class="comparison-table">
+                    <tr>
+                        <th>Ours</th>
+                        <th>GenerSpeech</th>
+                        <th>YourTTS</th>
+                        <th>VALL-E-X</th>
+                    </tr>
+                    <tr>
+                        <td><audio controls><source src="./samples/website2/ours8_cross.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/gener8_cross.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/yourtts8_cross.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/vallex8_cross.wav"></audio></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="samples-section">
+            <p class="reference-text">His friends say he is looking for the pot of gold at the end of the rainbow.</p>
+            <div class="reference-audio">
+                <h4>Reference Audio</h4>
+                <audio controls><source src="./samples/website2/ref9_cross.wav" type="audio/wav"></audio>
+            </div>
+            <div class="ground-truth-audio">
+                <h4>Ground Truth</h4>
+                <audio controls><source src="./samples/website2/gt9_cross.wav" type="audio/wav"></audio>
+            </div>
+
+            <div class="audio-players">
+                <table class="comparison-table">
+                    <tr>
+                        <th>Ours</th>
+                        <th>GenerSpeech</th>
+                        <th>YourTTS</th>
+                        <th>VALL-E-X</th>
+                    </tr>
+                    <tr>
+                        <td><audio controls><source src="./samples/website2/ours9_cross.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/gener9_cross.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/yourtts9_cross.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/vallex9_cross.wav"></audio></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="samples-section">
+            <p class="reference-text">And we will go meet her Wednesday at the train station.</p>
+            <div class="reference-audio">
+                <h4>Reference Audio</h4>
+                <audio controls><source src="./samples/website2/ref10_cross.wav" type="audio/wav"></audio>
+            </div>
+            <div class="ground-truth-audio">
+                <h4>Ground Truth</h4>
+                <audio controls><source src="./samples/website2/gt10_cross.wav" type="audio/wav"></audio>
+            </div>
+
+            <div class="audio-players">
+                <table class="comparison-table">
+                    <tr>
+                        <th>Ours</th>
+                        <th>GenerSpeech</th>
+                        <th>YourTTS</th>
+                        <th>VALL-E-X</th>
+                    </tr>
+                    <tr>
+                        <td><audio controls><source src="./samples/website2/ours10_cross.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/gener10_cross.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/yourtts10_cross.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/vallex10_cross.wav"></audio></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="samples-section">
+            <p class="reference-text">But refraction by the raindrops which causes the rainbows.</p>
+            <div class="reference-audio">
+                <h4>Reference Audio</h4>
+                <audio controls><source src="./samples/website2/ref11_cross.wav" type="audio/wav"></audio>
+            </div>
+            <div class="ground-truth-audio">
+                <h4>Ground Truth</h4>
+                <audio controls><source src="./samples/website2/gt11_cross.wav" type="audio/wav"></audio>
+            </div>
+
+            <div class="audio-players">
+                <table class="comparison-table">
+                    <tr>
+                        <th>Ours</th>
+                        <th>GenerSpeech</th>
+                        <th>YourTTS</th>
+                        <th>VALL-E-X</th>
+                    </tr>
+                    <tr>
+                        <td><audio controls><source src="./samples/website2/ours11_cross.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/gener11_cross.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/yourtts11_cross.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/vallex11_cross.wav"></audio></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="samples-section">
+            <p class="reference-text">She would never resort to such devices.</p>
+            <div class="reference-audio">
+                <h4>Reference Audio</h4>
+                <audio controls><source src="./samples/website2/ref12_cross.wav" type="audio/wav"></audio>
+            </div>
+            <div class="ground-truth-audio">
+                <h4>Ground Truth</h4>
+                <audio controls><source src="./samples/website2/gt12_cross.wav" type="audio/wav"></audio>
+            </div>
+
+            <div class="audio-players">
+                <table class="comparison-table">
+                    <tr>
+                        <th>Ours</th>
+                        <th>GenerSpeech</th>
+                        <th>YourTTS</th>
+                        <th>VALL-E-X</th>
+                    </tr>
+                    <tr>
+                        <td><audio controls><source src="./samples/website2/ours12_cross.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/gener12_cross.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/yourtts12_cross.wav"></audio></td>
+                        <td><audio controls><source src="./samples/website2/vallex12_cross.wav"></audio></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 
     <footer>
-        Submission to JASA Express Letters, 2025
+        Submission to JASA Express Letters, 2026
     </footer>
 </body>
 </html>
